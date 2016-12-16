@@ -1,0 +1,132 @@
+#include<stdio.h>
+int main()
+{
+	long long int top=-1,count=0,n,i,c,x,y,z,a[500010],s[500010];
+	while(1)
+	{
+		top=-1;count=0;
+	scanf("%lld",&n);
+	if(n==0)
+		break;
+	for(i=0;i<n;i++)
+	{
+		scanf("%lld",&a[i]);
+		if( top==-1 || s[top]>=a[i] )
+			s[++top]=a[i];
+		else
+		{
+			//flag=0;
+			c=1;
+			x=s[top];
+			while(1)
+			{
+				if(top>0)
+					y=s[--top];
+				else
+				{
+					top--;
+					y=x;
+				}
+				if(y>=a[i])
+				{
+					if(c>=2)
+					{
+						if(top>=0)
+							count+= (c*(c-1))/2 + c;
+						else
+							count+=(c*(c-1))/2;
+					}
+					else
+					{
+						if(top>=0)
+							count++;
+					}
+					/*if(flag==0)
+					{
+						flag=1;*/
+						//if(c>=2)
+							count+=c;
+						/*else
+							count++;*/
+					//}
+					x=y;
+					c=0;
+					break;
+				}
+				if(x==y && top>0)
+				{
+					c++;
+					continue;
+				}
+				else
+				{
+					if(c>=2)
+					{
+						if(top>=0)
+							count+= (c*(c-1))/2 + c;
+						else
+							count+=(c*(c-1))/2;
+					}
+					else
+					{
+						if(top>=0)
+							count++;
+					}
+					count+=c;
+					/*if(flag==0)
+					{
+						flag=1;
+						if(c>=2)
+							count+=c;
+						else
+							count++;
+					}*/
+					x=y;
+					c=1;
+				}
+				if(top==-1)
+					break;
+			}
+			s[++top]=a[i];
+		}
+	}
+	//printf("f=%d\n",count);
+	x=s[top];
+	c=1;
+	z=--top;
+	for(i=z;i>=0;i--,top--)
+	{
+		y=s[i];
+		if(x==y)
+		{
+			c++;
+		}
+		else
+		{
+			if(c>=2)
+				count+=(c*(c-1))/2 + c;
+			else
+				count++;
+			x=y;
+			c=1;
+		}
+	}
+	if(c>=2)
+	{
+		if(top>=0)
+			count+= (c*(c-1))/2 + c;
+		else
+			count+=(c*(c-1))/2;
+	}
+	else
+	{
+		if(top>0)
+			count+=2;
+		else if(top==0)
+			count++;
+	}
+	//printf("can see=%d\n",count);
+	printf("%lld\n",(n*(n-1))/2-count);
+	}
+	return 0;
+}

@@ -1,0 +1,69 @@
+#include<stdio.h>
+int main()
+{
+	int i,j,z,k,start1,start2,end1,end2,a[100001],b[100001],c,d,n,t,x,y,p,temp;;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+		scanf("%d",&a[i]);
+	for(i=0;i<n;i++)
+		scanf("%d",&b[i]);
+	scanf("%d",&t);
+	for(i=0;i<t;i++)
+	{
+		k=0;
+		scanf("%d%d",&c,&d);
+		for(j=0;j<n;j++)
+		{
+			if(b[j]==c)
+			{
+				x=j;
+				k++;
+			}
+			if(b[j]==d)
+			{
+				y=j;
+				k++;
+			}
+			if(k==2)
+				break;
+		//	printf("1\n");
+		}
+		if(x>y)
+		{
+			temp=x;
+			x=y;
+			y=temp;
+		}
+		start1=start2=0;
+		end1=end2=n;
+		p=-1;
+		j=start2;
+		while((p<x||p>y)&&j<z)
+		{
+			for(j=start2;j<end2;j++)
+			{	
+				if(a[start1]==b[j])
+				{
+					p=j;
+					break;
+				}
+			}
+			if(p<x)
+			{
+				z=start2;
+				start2=p+1;
+				start1=p-z+start1+1;
+			}
+			z=end2;
+			if(p>y)
+			{
+				end2=p;
+				end1=p-start2+start1+1;
+				start1++;
+			}
+		}
+		//printf("%d %d %d %d\n",b[p],p,x,y);
+		printf("%d\n",b[p]);	
+	}
+	return 0;
+}

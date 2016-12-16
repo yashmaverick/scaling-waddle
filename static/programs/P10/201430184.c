@@ -1,0 +1,144 @@
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	int n,i,t,u,k,j,h,o,s,l,p;
+	scanf("%d",&n);
+	char a[n][100];
+	char w;
+	char e[n],g[100];
+	e[0]='\0';
+	t=1;
+	for(i=0;i<n;i++)
+	{
+		strcpy(a[i],e);
+	}
+	j=0;
+	while(t!=0)
+	{
+		h=0;
+		l=j;
+		scanf("%c",&w);
+		if(w =='A')
+		{
+			scanf("%d",&u);
+			if(u<=n)
+			{
+				if(n-l>=u)
+				{
+					for(i=l;i<l+u;i++)
+					{
+						scanf("%s",a[i]);
+						j++;
+					}
+				} 
+				if(n-l<u)
+				{
+					if(l<n)
+					{
+						for(i=l;i<n;i++)
+						{
+							scanf("%s",a[i]);
+							l++;
+							j++;
+							h++;
+							if(l==n)
+							{
+								break;
+							}
+						}
+					}
+					if(l==n)
+					{
+						for(i=0;i<n;i++)
+						{
+							if(i<n-u+h)
+							{
+								strcpy(a[i],a[i+u-h]);
+							}
+							if(i>=n-u+h)
+							{
+								scanf("%s",a[i]);
+							}
+						}
+					}
+
+				}
+			}
+			if(u>n)
+			{
+				if(l<n)
+				{
+					for(i=l;i<n;i++)
+					{
+						scanf("%s",a[i]);
+						l++;
+						j++;
+						h++;
+						if(l==n)
+						{
+							break;
+						}
+					}	
+				}
+				if(l==n)
+				{
+					p=u-h;
+					if(p<n)
+					{
+						for(i=0;i<n;i++)
+						{
+							if(i<n-p)
+							{
+								strcpy(a[i],a[i+u-h]);
+							}
+							if(i>=n-p)
+							{
+								scanf("%s",a[i]);
+							}
+						}
+					}
+					if(p>n)
+					{
+						for(i=0;i<p-n;i++)
+						{
+							scanf("%s",g);
+						}
+						for(i=0;i<n;i++)
+						{
+							scanf("%s",a[i]);
+						}
+					}
+					}
+				}
+			}
+			if(w =='R')
+			{
+				scanf("%d",&k);
+				for(i=0;i<n;i++)
+				{
+					if(i<n-k)
+					{
+						strcpy(a[i],a[i+k]);
+					}
+					if(i>=n-k)
+					{
+						strcpy(a[i],e);
+						j--;
+					}
+				}
+			}
+			if(w =='L')
+			{
+				for(i=0;i<l;i++)
+				{
+					printf("%s\n",a[i]);
+				}
+			}
+			if(w =='Q')
+			{
+				break;
+			}
+		}
+		return 0;
+	}

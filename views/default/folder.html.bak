@@ -1,0 +1,2 @@
+<!-- <img src="{{=URL(default, s2, args=filename)}}" /> <pre>{{=XML(file_contents) }}</pre>-->
+{{=CODE(file_contents)}}

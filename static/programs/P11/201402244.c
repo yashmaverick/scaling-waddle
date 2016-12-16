@@ -1,0 +1,184 @@
+#include<stdio.h>
+int main()
+{
+	int test;
+	{
+		while(1)
+		{
+			long long int n,max=0;
+			scanf("%lld",&n);
+			if(n==0)
+			{
+				break;
+			}
+			long long int h[n];
+			long long int a=0,i,j,k,b=0;
+			for(i=0;i<n;i++)
+			{
+				scanf("%lld",&h[i]);
+			}
+			if(n>2)
+			{
+				for(j=1;j<n;j++)
+				{
+					if(h[0]>h[j])
+					{
+						b=j;	
+						break;
+					}
+				}
+				b=j;
+				if(max<j*h[0])
+				{
+				max=j*h[0];
+				}
+				if(h[1]>h[0])
+				{
+					if(b==n)
+					{
+						for(j=2;j<b;j++)
+						{
+							if(h[1]>h[j])
+							{
+								b=j;
+								break;
+							}
+						}
+					}
+					else
+					{
+						for(j=2;j<=b;j++)
+						{
+							if(h[1]>h[j])
+							{
+								b=j;
+								break;
+							}
+						}
+					}
+					b=j;
+					a=0;
+					if(max<(j-1)*h[1])
+					{
+						max=(j-1)*h[1];
+					}
+				}
+				else if(h[1]<h[0])
+				{
+					for(j=b;j<n;j++)
+					{
+						if(h[1]>h[j])
+						{
+							b=j;
+							break;
+						}
+					}
+					b=j;
+					if(j*h[1]>max)
+					{
+						max=(j)*h[1];
+					}
+					a=-1;
+				}
+				for(i=2;i<n;i++)
+				{
+					if(h[i]>h[i-1])
+					{
+						if(b==n)
+						{
+							for(j=i+1;j<b;j++)
+							{
+								if(h[i]>h[j])
+								{
+									b=j;
+									break;
+								}
+							}
+							b=j;				
+						}
+						else
+						{
+							for(j=i+1;j<=b;j++)
+							{
+								if(h[i]>h[j])
+								{
+									b=j;
+									break;
+								}
+							}
+							b=j;
+						}
+					}
+					else if(h[i]<h[i-1])
+					{
+						for(j=b;j<n;j++)
+						{
+							if(h[i]>h[j])
+							{
+								b=j;
+								break;
+							}
+						}	
+						b=j;
+					}
+					if(h[i]>h[i-1])
+					{
+						a=i-1;
+					}
+					else if(h[i]==h[i-1])
+					{
+					}
+					else if(h[i]<h[i-1])
+					{
+						for(k=a;k>=0;k--)
+						{
+							if(h[i]>h[k])
+							{
+								a=k;
+								break;
+							}
+						}
+						a=k;
+
+					}
+					if((b-a-1)*h[i]>max)
+					{
+						max=(b-a-1)*h[i];
+					}
+				}
+				
+
+				printf("%lld\n",max);
+
+			}
+			if(n==2)
+			{
+				if(h[1]>h[0])
+				{
+					if(2*h[0]>max)
+						max=2*h[0];
+				}
+				else if(h[1]==h[0])
+				{
+					if(2*h[1]>max)
+						max=2*h[1];
+				}
+				else if(h[1]<h[0])
+				{
+					if(2*h[1]>max)
+						max=2*h[1];
+				}
+				if(max<h[0])
+					max=h[0];
+				if(max<h[1])
+					max=h[1];
+				printf("%lld\n",max);
+			}
+			if(n==1)
+			{
+				printf("%lld\n",h[0]);
+			}
+		}
+	}
+	return 0;
+}

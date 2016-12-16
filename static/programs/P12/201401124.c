@@ -1,0 +1,85 @@
+#include<stdio.h>
+int main()
+{
+	long long n=1,a[500000],stac[500000];
+	while(n)
+	{
+		long long i,y=0,j,g=0,pos,count=0,sp=-1;;
+		scanf("%lld",&n);
+		if(n!=0)
+		{
+			for(i=0;i<n;i++)
+				scanf("%lld",&a[i]);
+			i=0;
+			while(i<n)
+			{
+				if(sp==-1)
+				{
+					sp++;
+					stac[sp]=a[i];
+					i++;
+				}
+				else if(a[i]==stac[sp])
+				{
+					g=0;
+					while(stac[sp]==a[i])
+					{
+						g++;
+						sp--;
+					}
+					if(sp!=-1)
+						count=count+sp;
+					for(j=0;j<g;j++)
+					{
+						sp++;
+						stac[sp]=a[i];
+					}
+					sp++;
+					stac[sp]=a[i];
+					i++;
+				}
+				else if(a[i]>stac[sp])
+				{
+					y=0;
+					g=0;
+					//great=a[i];
+					pos=i+1;
+					while(pos<n)
+					{
+						y++;
+						pos++;
+					}
+					while(stac[sp]<=a[i])
+					{
+						if(stac[sp]!=a[i])
+							count=count+y;
+						else
+							g++;
+						sp--;
+						if(sp==-1)
+							break;
+					}
+					if(sp!=-1)
+						count=count+sp;
+					for(j=0;j<g;j++)
+					{
+						sp++;
+						stac[sp]=a[i];
+					}
+					sp++;
+					stac[sp]=a[i];
+					i++;
+				}
+				else
+				{
+					count=count+sp;
+					sp++;
+					stac[sp]=a[i];
+					i++;
+				}
+			}
+			printf("%lld\n",count);
+		}
+	}
+	return 0;
+}

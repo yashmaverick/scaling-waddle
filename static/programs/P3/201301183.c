@@ -1,0 +1,50 @@
+#include<stdio.h>
+int main()
+{
+	long long int i,n,t,minind,maxind,min=0,max=0,temp,maxprof,tempprof;
+	scanf("%lld",&t);
+	while(t--)
+	{
+		tempprof=0;
+		maxprof=0;
+		min=0;
+		max=0;
+		scanf("%lld",&n);
+		for(i=0;i<n;i++)
+		{
+			scanf("%lld",&temp);
+			if(i==0)
+			{
+				min=temp;
+				max=temp;
+				minind=i;
+				maxind=i;
+			}
+			else
+			{
+				if(min>=temp)
+				{
+					min=temp;
+					minind=i;
+				}
+				if(max<=temp)
+				{
+					max=temp;
+					maxind=i;
+				}
+			}
+			if(minind<maxind)
+			{
+				maxprof=max-min;
+				if(tempprof<maxprof)
+					tempprof=maxprof;
+				else
+					maxprof=tempprof;
+			}
+			else
+				max=0;
+		}
+		printf("%lld\n",maxprof);
+	}
+	return 0;
+}

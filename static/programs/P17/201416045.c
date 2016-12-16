@@ -1,0 +1,100 @@
+#include<stdio.h>
+int a[10000],b[10000],c[100],i1=0,n,k3;
+/*k3=c[i1];
+  int f(int b[k3],int p,int q)
+  {
+  int i,j,k=0,flag=0,k1=0;
+  if(i1==0)
+  {
+  for(i=0;i<n;)
+  {
+  for(j=0;j<n;j++)
+  {
+  if(a[i]==b[j])
+  {
+  c[k]=j;
+  i=c[k]+1;
+  k++;
+  }
+  }
+  }
+  }
+  int k2=0;
+  for(i=0;i<b[c[k1]];i++)
+  {
+  if(p==b[i])
+  flag=1;
+  if(q=b[i])
+  flag=2;
+  if(flag==1&&flag!=2||flag!=1&&flag==2)
+  flag==3;
+  return 1;
+  if(p==b[i]&&flag!=3)
+  {c[i1++]=k2;
+  f(b[k2],p,q);
+  if(i1==k+1)
+  break;
+  }
+  if(q==b[i]&&flag!=3)
+  {c[i1++]=k2;
+  f(b[k2],p,q);
+  if(i1==k+1)
+  break;
+  }
+  k1++;
+  if(k1==k)
+  break;
+  }
+  }*/
+int main()
+{
+	int i,j,t,a1,p,q,k=0,l1=0,l2=0,g;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	for(j=0;j<n;j++)
+	{
+		scanf("%d",&b[j]);
+	}
+	scanf("%d",&t);
+	for(a1=0;a1<t;a1++)
+	{
+		scanf("%d%d",&p,&q);
+
+		for(j=0;j<n;j++)
+		{
+			for(i=0;i<n;i++)
+			{
+				if(a[j]==b[i])
+				{
+					c[k]=i;
+					k++; 
+				}
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			if(p==b[i])
+			{
+				l1=i;
+			}
+			if(q==b[i])
+			{
+				l2=i;
+			}
+		}
+		for(i=0;i<n;i++)
+		{
+			if((c[i]>=l1&&c[i]<=l2)||(c[i]<=l1&&c[i]>=l2))
+			{
+				g=i;
+				break;
+			}
+		}
+		printf("%d\n",b[c[g]]);
+	}
+	g=0;
+	return 0;
+}

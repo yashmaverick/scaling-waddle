@@ -1,0 +1,43 @@
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+	long long int t,x,n,i,m,k;
+	scanf("%lld",&t);
+	for(x=0;x<t;x++)
+	{
+		scanf("%lld",&n);
+		if(n==1)
+		{
+			printf("0\n");
+			continue;
+		}
+		m=n;
+		i=-1;
+		while(n>0)
+		{
+			n=n/2;
+			i++;
+		}
+		k=pow(2,i);
+	if(m==k)
+	{
+		printf("%lld\n",(2*(i-1)+1));
+		continue;
+	}
+	else
+	{
+		if((m-k+1)>(k/2))
+		{
+			printf("%lld\n",2*i);
+			continue;
+		}
+		else
+		{
+			printf("%lld\n",(2*i-1));
+			continue;
+		}
+	}
+	}
+	return 0;
+}

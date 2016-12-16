@@ -1,0 +1,402 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<math.h>
+int dot=0;
+int lev=0;
+int fo=0;
+int z=0;
+#define MAX 100005
+typedef struct list
+{
+	int val;
+	struct list *next;
+}list;
+typedef struct list* LINK;
+LINK graph[MAX];
+int queue[MAX],top;
+int o=0;
+void insert(int head,int val)
+{
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	long long int star=0;
+	int st=0;
+	int he=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	LINK p=(LINK)malloc(sizeof(list));
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	p->val=val;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	p->next=graph[head];
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	graph[head]=p;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	return ;
+}
+char check[MAX];
+void dfs(int head)
+{
+	long long int star=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	int st=0;
+	int he=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+		st=0;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	LINK tmp;
+	st=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	st++;
+	star=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	check[head]=1;
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(tmp=graph[head];tmp!=NULL;tmp=tmp->next)
+	{
+		st=0;
+		st++;
+		o=o+1;
+		star=0;
+		for(dot=0;dot<25;dot++)
+		{
+			fo++;
+			o=o+1;
+			lev--;
+		}
+		if(!check[tmp->val])
+		{
+			st=0;
+			o=o+1;
+			st++;
+			star=0;
+			for(dot=0;dot<25;dot++)
+			{
+				fo++;
+				lev--;
+				o=o+1;
+			}
+			dfs(tmp->val);
+		}
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		st=0;
+		st++;
+		star=0;
+		o=o+1;
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	o=o+1;
+	queue[top++]=head;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+		o=o+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		st=0;
+		st++;
+		star=0;
+		o=o+1;
+		o=o+1;
+		fo++;
+		lev--;
+	}
+}
+void myf(int n){
+	long long int star=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	int st=0;
+	int he=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		o=o+1;
+		lev--;
+	}
+	int i;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		st=0;
+		st++;
+		o=o+1;
+		fo++;
+		lev--;
+	}
+	top=0;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	memset(check,0,sizeof(check));
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	st=0;
+	o=o+1;
+	st++;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	star=0;
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		o=o+1;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(i=n;i>0;i--){
+		st=0;
+		st++;
+		star=0;
+		o=o+1;
+		for(dot=0;dot<25;dot++)
+		{
+			fo++;
+			o=o+1;
+			lev--;
+		}
+		if(check[i]==0)dfs(i)	;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+		o=o+1;
+	}
+	//printf("\n%d\n",top);
+	for(i=top-1;i>=0;i--)
+	{
+		o=o+1;
+		st=0;
+		st++;
+		star=0;
+		o=o+1;
+		for(dot=0;dot<25;dot++)
+		{
+			fo++;
+			o=o+1;
+			lev--;
+		}
+		if(i==0)
+		{
+			st=0;
+			o=o+1;
+			st++;
+			star=0;
+			for(dot=0;dot<25;dot++)
+			{
+				fo++;
+				o=o+1;
+				lev--;
+			}
+			printf("%d\n",queue[0]);
+			o=o+1;
+			return ;
+		}
+		st=0;
+		st++;
+		star=0;
+		o=o+1;
+		for(dot=0;dot<25;dot++)
+		{
+			fo++;
+			lev--;
+		}
+		o=o+1;
+		printf("%d ",queue[i]);
+	}
+}
+int main()
+{
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	int n,m,x,y,i;
+	scanf("%d%d",&n,&m);
+
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(i=1;i<=n;i++)graph[i]=NULL;
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(i=1;i<=m;i++)
+	{
+		o=o+1;
+		for(dot=0;dot<25;dot++)
+		{
+			fo++;
+			lev--;
+		}
+		o=o+1;
+		scanf("%d%d",&x,&y);
+		o=o+1;
+		for(dot=0;dot<25;dot++)
+		{
+			fo++;
+			lev--;
+		}
+		o=o+1;
+		insert(x,y);
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	myf(n);
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	for(dot=0;dot<25;dot++)
+	{
+		fo++;
+		lev--;
+	}
+	for(z=0;z<-1;z++)
+	{
+		z=z+1;
+	}
+	return 0;
+}

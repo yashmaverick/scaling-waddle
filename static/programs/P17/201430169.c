@@ -1,0 +1,43 @@
+#include<stdio.h>
+int main()
+{
+	int i,n,in[100000],pre[100000],index_in[100000],index_pre[100000],min,t,q1,q2;
+	scanf("%d",&n);
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&pre[i]);
+		index_pre[pre[i]]=i;
+	}
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&in[i]);
+		index_in[in[i]]=i;
+	}
+	scanf("%d",&t);
+	while(t--)
+	{
+		scanf("%d%d",&q1,&q2);
+		if(index_pre[q1]<index_pre[q2])
+			min=index_pre[q1];
+		else
+			min=index_pre[q2];
+		if(index_in[q1]<index_in[q2])
+		{
+			for(i=index_in[q1];i<=index_in[q2];i++)
+			{
+				if(index_pre[in[i]]<min)
+					min=index_pre[in[i]];
+			}
+		}
+		else
+		{
+			for(i=index_in[q2];i<=index_in[q1];i++)
+			{
+				if(index_pre[in[i]]<min)
+					min=index_pre[in[i]];
+			}
+		}
+		printf("%d\n",pre[min]);
+	}
+	return 0;
+}	

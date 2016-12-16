@@ -1,0 +1,20 @@
+<table>
+  <tr>
+    <td align='right'>
+    	<iframe width="500" height="560" name="ifrm1" id="myFrame" src="http://w3schools.com"></iframe>
+    </td>
+
+    <td>
+    	<iframe name="ifrm2" id="myFrame" width="500" height="560" src="http://w3schools.com"></iframe>
+      </td>
+    <td valign="top" >
+
+        {{=form.custom.begin}}
+        Select a Label: <div>{{=form.custom.widget.Label}}</div> <br><br>
+        Select Type: <div>{{=form.custom.widget.Type}}</div>
+        {{=form.custom.submit}}
+        {{=form.custom.end}}
+
+    </td>
+  </tr>
+</table>

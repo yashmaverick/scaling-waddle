@@ -1,0 +1,55 @@
+#include<stdio.h>
+int main()
+{
+	int N,p,NA,q,j,a[100001],b[100001],c[100001],i=0,max;
+	scanf("%d",&N);
+	while(N--)
+	{
+		scanf("%d",&NA);
+		max=0,j=NA-1;
+		for(i=0;i<NA;i++)
+		{
+			scanf("%d",&a[i]);
+		}
+		p=a[0];
+		q=a[NA-1];
+		b[0]=a[0];
+		c[NA-1]=a[NA-1];
+		i=0;
+		while(i<NA-1)
+		{
+			if(p<=a[i+1])
+			{
+				b[i+1]=p;
+			}
+			else
+			{
+				p=a[i+1];
+				b[i+1]=p;
+			}
+			i++;
+		}
+		j=NA-1;
+		while(j>0)
+		{
+			if(q>=a[j-1])
+			{
+				c[j-1]=q;
+			}
+			else
+			{
+				q=a[j-1];
+				c[j-1]=q;
+			}
+			j--;
+		}
+		max=0;
+		for(i=0;i<NA;i++)
+		{
+			if(max<=(c[i]-b[i]))
+				max=c[i]-b[i];
+		}
+		printf("%d\n",max);
+	}
+	return 0;
+}

@@ -1,0 +1,49 @@
+<body>
+    <h4 align="middle">
+        IIIT-H Code Annotator
+    </h4>
+<table>
+  <tr>
+      <td bgcolor="#e5ecff" align="right">
+       <iframe name="ifrm1" id="myFrame1" width="540" height="560"  src="{{=URL('static/programs',url1.split('.')[0]+'.html')}}"></iframe>
+     </td>
+
+      <td bgcolor="#e5ecff">
+       <iframe name="ifrm2" id="myFrame2" width="540" height="560"  src="{{=URL('static/programs',url2.split('.')[0]+'.html')}}"></iframe>
+<!--           {{=CODE(txt)}} -->
+      </td>
+
+      <td valign="top" align="left">
+        {{=form.custom.begin}}
+
+       <h4>Select a Label:</h4> <div>{{=form.custom.widget.Label}}</div> <br><br>
+    
+     <!--    <h4>Select Type:</h4> <div>{{=form.custom.widget.Type}}</div>-->
+       {{=form.custom.submit}}
+        {{=form.custom.end}}
+       {{=counter}}
+    
+    </td>
+    </tr>
+
+      <!---
+      <tr>
+
+          <td align="right">
+                            <a type="button" class="btn btn-primary" href="{{=URL('index')}}">
+               <button>. .Prev</button>
+              </a>
+
+          </td>
+
+          <td align="left" colspan="2">
+              <a type="button" class="btn btn-primary" href="{{=URL('index?id='+str(page_id+1))}}">
+              <button>Next. .</button>
+              </a>
+          </td>
+
+      </tr>
+      -->
+
+</table>
+</body>

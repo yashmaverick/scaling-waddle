@@ -1,0 +1,65 @@
+#include<stdio.h>
+int main()
+{
+    int i,j,k,n,t,flag11,flag22,flag33,i1,num1,num2,in1,in2,v1,v2;
+    scanf("%d",&n);
+    int arr1[n],arr2[n];
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr1[i]);
+    }
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&arr2[i]);
+    }
+    scanf("%d",&t);
+    while(t>0)
+    {
+        flag11=0;flag22=0;flag33=0;
+        scanf("%d%d",&v1,&v2);
+        for(i=0;i<n;i++)
+        {
+            if(arr2[i]==v1)
+            {
+                in1=i;
+                flag11=1;
+            }
+            if(arr2[i]==v2)
+            {
+                in2=i;
+                flag22=1;
+            }
+            if(flag11==1&&flag22==1)
+            {
+                break;
+            }
+        }
+        if(in1>in2)
+        {
+            num1=in2;
+            num2=in1;
+        }
+        else
+        {
+            num1=in1;
+            num2=in2;
+        }
+        j=0;
+        for(i=0;i<n;i++)
+        {
+            for(i1=num1;i1<=num2;i1++)
+            {
+                if(arr2[i1]==arr1[i])
+                {
+                    printf("%d\n",arr1[i]);
+                    flag33=1;
+                    break;
+                }
+            }
+            if(flag33==1)
+                break;
+        }
+        t--;
+    }
+    return 0;
+}
